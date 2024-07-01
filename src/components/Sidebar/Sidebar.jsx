@@ -35,7 +35,7 @@ const Sidebar = () => {
       <div className="bottom">
         <div className="bottom-items">
           <AiOutlineQuestionCircle id='icon'/>
-          {extended && <p>도움</p>}
+          {extended && <p>도움말</p>}
         </div>
         <div className="bottom-items">
           <IoIosSettings id='icon'/>
