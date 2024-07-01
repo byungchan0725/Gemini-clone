@@ -1,42 +1,54 @@
+/* Base sidebar styles */
 .sidebar {
-    min-height: 100vh;
-		min-width: 280px;
-		display: inline-flex;
-		flex-direction: column;
-		justify-content: space-between;
-		background-color: rgb(30, 31, 32);
-		color: rgb(199, 199, 199);
-		font-size: 13px;
-		padding: 24px 14px;
+	min-height: 100vh;
+	width: 70px; /* Initial width for the collapsed state */
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: rgb(30, 31, 32);
+	color: rgb(199, 199, 199);
+	font-size: 13px;
+	padding: 24px 14px;
+	transition: width 0.3s ease; /* Smooth transition when expanding/collapsing */
 }
 
+/* Expanded sidebar */
+.sidebar.extended {
+	width: 280px; /* Width for the expanded state */
+}
+
+/* Icon styles */
 #icon {
 	font-size: 24px;
 }
 
+/* Menu button */
 .sidebar .top .menu {
-	content: block;
 	margin-left: 8px;
 	cursor: pointer;
 }
 
+/* Hover effect for the menu button */
 .sidebar .top .menu:hover {
-	color: rgb(255, 255, 255)
+	color: rgb(255, 255, 255);
 }
 
+/* New chat button */
 .sidebar .new-chat {
 	margin-top: 80px;
 	display: inline-flex;
 	align-items: center;
 	gap: 20px;
-	padding: 10px 15px;
+	padding: 10px 10px;
 	border-radius: 100px;
-	color: rgb(70, 70, 70);
+	color: rgb(119, 119, 119);
 	cursor: pointer;
 	background-color: rgb(26, 26, 28);
+	transition: background-color 0.5s ease;
 }
 
-.sidebar .recent .recent-title{
+/* Recent chats section */
+.sidebar .recent .recent-title {
 	margin-top: 50px;
 	margin-left: 10px;
 	margin-bottom: 7px;
@@ -55,6 +67,7 @@
 	background-color: rgb(43, 43, 44);
 }
 
+/* Bottom section with help and settings */
 .sidebar .bottom {
 	display: flex;
 	flex-direction: column;
@@ -71,4 +84,24 @@
 
 .sidebar .bottom-items:hover {
 	background-color: rgb(43, 43, 44);
+}
+
+/* Only show text when sidebar is expanded */
+.sidebar.extended .new-chat p,
+.sidebar.extended .recent-entry p,
+.sidebar.extended .bottom-items p {
+	display: inline; /* Show text when expanded */
+}
+
+/* Hide text in collapsed state */
+.new-chat p,
+.recent-entry p,
+.bottom-items p {
+	display: none; /* Hide text when collapsed */
+}
+
+/* Adjust new-chat and recent-entry alignment */
+.sidebar.extended .new-chat,
+.sidebar.extended .recent-entry {
+	justify-content: flex-start; /* Align items to the left in expanded state */
 }
